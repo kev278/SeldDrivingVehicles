@@ -1,4 +1,0 @@
-/*
-Stoppng Distance
-
-*/
