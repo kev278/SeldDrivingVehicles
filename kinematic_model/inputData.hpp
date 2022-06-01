@@ -14,6 +14,7 @@ class Input
     std::vector<double> omega1, omega2, time;
     std::map<int, std::vector<std::string>> csv_contents;
     double wheelRadius, wheelToCenter;
+    int sizeOfInput;
 
     public:
 
@@ -52,22 +53,32 @@ class Input
             return csv_contents;
         }
 
-        void getCSVContents()
+        void setCSVContents()
         {
             csv_contents = getFileContent();
         }
 
-        void getWheelRadius()
+        void setWheelRadius()
         {
-        wheelRadius = std::stod (csv_contents[1][0], nullptr); 
+            wheelRadius = std::stod (csv_contents[1][0], nullptr); 
         }
 
-        void getWheelToCenter()
+        double getWheelRadius()
+        {
+            return wheelRadius;
+        }
+
+        void setWheelToCenter()
         {
             wheelToCenter = std::stod(csv_contents[1][1], nullptr);
         }
 
-        void getOmega1()
+        double getWheelToCenter()
+        {
+            return wheelToCenter;
+        }
+
+        void setOmega1()
         {
             for(int i{3}; i < csv_contents.size(); i++)
             {
@@ -75,7 +86,12 @@ class Input
             }
         }
 
-        void getOmega2()
+        std::vector<double> getOmega1()
+        {
+            return omega1;
+        }
+
+        void setOmega2()
         {
             for(int i{3}; i < csv_contents.size(); i++)
             {
@@ -83,11 +99,31 @@ class Input
             }
         }
 
-        void getTime()
+        std::vector<double> getOmega2()
+        {
+            return omega2;
+        }
+
+        void setTime()
         {
             for(int i{3}; i < csv_contents.size(); i++)
             {
                 time.push_back(std::stod(csv_contents[i][0]));
             }
+        }
+
+        std::vector<double> getTime()
+        {
+            return time;
+        }
+
+        void setSizeOfInput()
+        {
+            sizeOfInput = omega1.size();
+        }
+
+        int getSizeOfData()
+        {
+            return sizeOfInput;
         }
 };
