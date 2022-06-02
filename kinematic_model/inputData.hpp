@@ -60,7 +60,7 @@ class Input
 
         void setWheelRadius()
         {
-            wheelRadius = std::stod (csv_contents[1][0], nullptr); 
+            wheelRadius = std::stod(csv_contents[1][0], nullptr);
         }
 
         double getWheelRadius()
